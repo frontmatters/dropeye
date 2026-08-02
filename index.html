@@ -81,6 +81,8 @@ h1{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height
 .shot{max-width:1000px;margin:56px auto 0;border-radius:var(--radius);overflow:hidden;
   border:1px solid var(--line-2);box-shadow:var(--shadow);background:var(--card)}
 .shot img{width:100%;display:block}
+.shotcap{max-width:1000px;margin:16px auto 0;text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--faint);display:flex;align-items:center;justify-content:center;gap:8px}
+.livedot{width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px color-mix(in srgb,var(--live) 22%,transparent);flex:none}
 
 /* value row — text-led, hairline-separated, NOT a card grid */
 .values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
@@ -142,7 +144,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
   <h1 class="fade d2">Your clipboard, on every screen in the room.</h1>
   <p class="sub fade d2">Dropeye turns your Mac into a shared clipboard and pinboard for every device on the local network. Text, code and files — live, in any browser.</p>
   <div class="cta fade d3">
-    <a class="btn btn-solid" href="#get">
+    <a class="btn btn-solid" href="https://github.com/frontmatters/dropeye/releases/latest/download/Dropeye.dmg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5"/><path d="M4 17v2.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V17"/></svg>
       Download for macOS
     </a>
@@ -151,6 +153,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
   <p class="meta fade d3">Free 14-day trial · no account · macOS 14+ · Apple silicon &amp; Intel</p>
 
   <figure class="shot fade d4"><img src="assets/board.png" alt="The Dropeye board — a shared feed of text, code snippets and files, open in a browser on the local network."></figure>
+  <p class="shotcap fade d4"><span class="livedot"></span>Live · every device sees a share the instant it lands</p>
 </section>
 
 <section class="wrap">
@@ -185,7 +188,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
 <section class="buy wrap" id="get">
   <div class="price">€19<small>one-time · one Mac · yours to move · works fully offline once activated</small></div>
   <div class="cta">
-    <a class="btn btn-solid" href="#">
+    <a class="btn btn-solid" href="https://github.com/frontmatters/dropeye/releases/latest/download/Dropeye.dmg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4.5-4.5M12 15l4.5-4.5"/><path d="M4 17v2.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V17"/></svg>
       Download the free trial
     </a>
