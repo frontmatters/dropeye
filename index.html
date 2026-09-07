@@ -123,6 +123,22 @@ footer{border-top:1px solid var(--line);padding:34px 0}
   .values .v:nth-child(3){border-left:0} .values .v{padding:28px 22px} .values .v+.v{padding-left:22px} }
 @media(max-width:520px){ .values{grid-template-columns:1fr} .values .v,.values .v+.v{border-left:0;padding:24px 0}
   .nav .price-hint{display:none} body{font-size:17px} }
+
+/* FAQ — native disclosure, no script: it prints, it keyboards, it degrades. */
+.faq{padding:8px 0 40px}
+.faq h2{font-family:var(--display);font-weight:800;letter-spacing:-.03em;font-size:clamp(28px,4vw,40px);margin:0 0 26px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 34px 18px 0;position:relative;
+  font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:10px;height:10px;
+  border-right:1.6px solid var(--faint);border-bottom:1.6px solid var(--faint);
+  transform:translateY(-70%) rotate(45deg);transition:transform .18s var(--ease)}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq summary:focus-visible{outline:2px solid var(--btn);outline-offset:3px;border-radius:4px}
+.faq p{margin:0 0 18px;padding-right:34px;color:var(--ink-2);max-width:70ch}
+.faq p code{font-family:var(--mono);font-size:.92em;background:var(--paper-2);padding:1px 5px;border-radius:4px}
 </style>
 <script>
 // Download buttons: resolve the versioned dmg name (Dropeye-x.y.z.dmg) via the
@@ -201,6 +217,80 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <section class="stmt wrap">
   <p>No account. No cloud. <span class="dim">Nothing leaves the room.</span></p>
+</section>
+
+<section class="faq wrap" id="faq">
+  <h2>Questions</h2>
+
+  <details>
+    <summary>What do the other devices need?</summary>
+    <p>A browser. There is nothing to install on them and no account to make. Scan the QR code
+    from the menu bar, or open the address Dropeye shows you.</p>
+  </details>
+
+  <details>
+    <summary>Does anything leave my network?</summary>
+    <p>No. Your Mac serves the board to the devices in the room, and there is no server of ours
+    anywhere in that path. The app is sandboxed and asks macOS only for the permission it needs
+    to serve on your network. The single time Dropeye speaks to the internet is when you
+    activate your license.</p>
+  </details>
+
+  <details>
+    <summary>What is the fastest way to get something onto my phone?</summary>
+    <p>Copy it and press <code>&#8984;&#8679;V</code> in any app, without switching to Dropeye.
+    Whatever you copied is on the board before you have picked up the phone. Files go by
+    dragging them onto the window; drop a folder and it arrives as one archive.</p>
+  </details>
+
+  <details>
+    <summary>What happens when the 14 days are up?</summary>
+    <p>The board stops starting until you enter a license key. Nothing you made is taken away:
+    your saved vaults, their exports and every setting stay reachable without a license.</p>
+  </details>
+
+  <details>
+    <summary>Is this a subscription?</summary>
+    <p>No. One payment, one Mac, and it moves with you: Settings has a "Deactivate this Mac"
+    button so a new machine can take the license over. Updates are included.</p>
+  </details>
+
+  <details>
+    <summary>Which Macs does it run on?</summary>
+    <p>macOS 14 Sonoma or later, on Apple silicon and on Intel. The app is signed and notarized
+    by Apple.</p>
+  </details>
+
+  <details>
+    <summary>Is what I share encrypted?</summary>
+    <p>Vaults are, with AES-256-GCM under a key that never leaves your Mac's Keychain. The board
+    itself is served over your own network, and the passphrase gate is what decides who reaches
+    it.</p>
+    <p>There is also an experimental <strong>Encrypt with HTTPS</strong> setting, off by default.
+    It encrypts the traffic, but no public authority issues certificates for a local address, so
+    other devices warn about the certificate the first time and again whenever your Mac's
+    addresses change. For encryption with no warning at all, reach the board over Tailscale,
+    which gives it a real certificate and an address that stays put.</p>
+  </details>
+
+  <details>
+    <summary>Can someone on my network wipe the board?</summary>
+    <p>The Clear button exists only on the host's own screen, so a guest never sees it. You can
+    also limit guests to removing only what they posted themselves.</p>
+  </details>
+
+  <details>
+    <summary>Can an AI agent use the board?</summary>
+    <p>Yes, and it is off until you turn it on. An agent gets its own key, which you can scope
+    and revoke on its own, and it reads only a separate agent lane rather than the rest of your
+    board. Everything it posts is marked as coming from an agent.</p>
+  </details>
+
+  <details>
+    <summary>Does it work without internet?</summary>
+    <p>Completely. Dropeye needs a local network, not the internet, and once your license is
+    activated it keeps working with the internet gone.</p>
+  </details>
 </section>
 
 <section class="buy wrap" id="get">
