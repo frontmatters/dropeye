@@ -20,13 +20,16 @@ The "Buy a license" buttons carry `class="lemonsqueezy-button"`, so with
 [Lemon.js](https://docs.lemonsqueezy.com/help/lemonjs) loaded the Lemon Squeezy
 checkout opens as an **overlay on this page** instead of redirecting away.
 
-## Before going live — fill the placeholders
+## Before going live
 
-- **Price** — currently `€19` (appears 3×). Set the real price.
-- **Download link** — the "Download the free trial" button points at `#`. Point it
-  at the hosted, notarized `.dmg`.
-- **Checkout URL** — already wired to the live product
+- **Price** — `€19`, matching the Lemon Squeezy product. It appears three times in the
+  page; change all three together.
+- **Download link** — wired to
+  `github.com/frontmatters/dropeye-releases/releases/latest/download/Dropeye.dmg`, and a
+  script on the page rewrites it to the versioned filename from the releases API.
+- **Checkout URL** — wired to the live product
   (`frontmatters.lemonsqueezy.com/checkout/buy/84151918-…`).
+- **Host** — the page is not deployed anywhere yet. It needs a host and a domain.
 
 ## Deploy
 
